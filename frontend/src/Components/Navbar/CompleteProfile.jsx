@@ -33,8 +33,8 @@ const CompleteProfile = ({ setImageURL }) => {
             const formData = new FormData();
             formData.append('file', image);
             const response = await uploadImage(formData);
-            console.log('Uploaded image URL:', response.data.url);
-            setImageURL(response.data.url);
+            console.log('Uploaded image URL:', response.url);
+            setImageURL(response.url);
             navigate('/');
         } catch (error) {
             console.error('Error uploading:', error);

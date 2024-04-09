@@ -17,13 +17,15 @@ export const authenticateLogin = async(data) => {
 }
 export const uploadImage = async (data) => {
     try {
-        return await axios.post(`${URL}/upload`, data, {
+        const response = await axios.post(`${URL}/upload`, data, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         });
+        return response.data;
     } catch (error) {
         console.log('Error while uploading image', error);
         throw error; 
     }
 };
+
