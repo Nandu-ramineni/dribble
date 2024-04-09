@@ -1,6 +1,5 @@
 import User from '../Model/userSchema.js';
 import { v2 as cloudinary } from 'cloudinary';
-import { CloudinaryStorage } from 'multer-storage-cloudinary';
 import multer from 'multer';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -38,24 +37,17 @@ cloudinary.config({
 });
 
 export const uploadImage = async (req, res) => {
-    const storage = new CloudinaryStorage({
-        cloudinary: cloudinary,
-        params: {
-            folder: 'dribble',
-            format: async (req, file) => 'png', // supports promises as well
-            public_id: (req, file) => 'computed-filename-using-request',
-        },
-    });
-    const parser = multer({ storage: storage });
-    try {
-        parser.single('file')(req, res, (err) => {
-            if (err) {
-                return res.status(500).json({ message: err.message });
-            }
-            res.status(200).json({ url: req.file.path });
-        });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-}
+    const upload = multer({ dest: 'uploads/' }).single('file');
 
+    upload(req, res, async (err) => {
+        if (err) {
+            return res.status(500).json({ message: err.message });
+        }
+        try {
+            const result = await cloudinary.uploader.upload(req.file.path, { folder: 'dribble', format: 'png' });
+            res.status(200).json({ url: result.secure_url });
+        } catch (error) {
+            res.status(500).json({ message: error.message });
+        }
+    });
+}
