@@ -1,5 +1,5 @@
 import axios from 'axios';
-const URL = 'https://dribble-d4az.onrender.com/';
+const URL = 'https://dribble-d4az.onrender.com';
 export const authenticateSignup = async(data) => {
     try {
         return await axios.post(`${URL}/signup`,data)
