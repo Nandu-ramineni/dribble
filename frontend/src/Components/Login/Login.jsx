@@ -185,7 +185,7 @@ const Login = () => {
                             </Box>
                             <Box>
                                 <label htmlFor='password' className='font-medium flex items-center gap-3'><RiLockPasswordLine />password</label> 
-                                <input name='password' label='Enter Password' onChange={onValueChange} placeholder='Enter password' className="mt-1 p-2 bg-[#F3F3F3] w-3/4  rounded-md focus:outline-none md:w-full"/>
+                                <input name='password' type='password' label='Enter Password' onChange={onValueChange} placeholder='Enter password' className="mt-1 p-2 bg-[#F3F3F3] w-3/4  rounded-md focus:outline-none md:w-full"/>
                             </Box>
                             {error && <Error>Please enter valid credentials</Error>}
                             <Text className='flex justify-center'>By continuing, you agree to Dribble{"'"}s Terms & services.</Text>
