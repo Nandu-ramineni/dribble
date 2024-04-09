@@ -1,9 +1,9 @@
 
 
-```markdown
+
 # Web Project
 
-This project is  built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It allows users to register, login, complete their profile (including uploading an image), and sends a thank you message via Gmail upon registration.
+This project uses the MERN (MongoDB, Express.js, React.js, Node.js) stack. It allows users to register, log in, complete their profile (including uploading an image, and sends a thank you message via Gmail upon registration.
 ![Screenshot_9-4-2024_215236_localhost](https://github.com/Nandu-ramineni/dribble/assets/123319320/60b993ca-464a-4f96-a5b3-b658a1d1bce1)
 ![Screenshot_9-4-2024_21533_localhost](https://github.com/Nandu-ramineni/dribble/assets/123319320/7ece3b85-1a7d-45d3-8580-d59b27fa06ae)
 ![Screenshot (495)](https://github.com/Nandu-ramineni/dribble/assets/123319320/21dad712-22e1-43e1-adb9-93a2f43ba830)
@@ -14,7 +14,8 @@ This project is  built using the MERN (MongoDB, Express.js, React.js, Node.js) s
 - User profile completion with the ability to upload an image
 - Thank you message sent via Gmail upon successful registration
 - Dribbble-like design and functionality
-
+- 
+```
 ## Installation
 
 1. Clone the repository:
