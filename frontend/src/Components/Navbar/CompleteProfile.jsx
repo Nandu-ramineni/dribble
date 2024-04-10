@@ -9,11 +9,14 @@ const CompleteProfile = ({ setImageURL }) => {
     const logoURL = "https://cdn.freebiesupply.com/logos/large/2x/dribbble-icon-1-logo-png-transparent.png";
     const imageURL = "https://assets-global.website-files.com/61f1d93f0f31a2ee1518903a/61f1d93f0f31a22bff1890a8_Group%202.svg";
     const [image, setImage] = useState(null);
+    const [fileName, setFileName] = useState(""); 
     const [next, setNext] = useState(false);
     const navigate = useNavigate();
 
     const handleAvatarChange = (e) => {
-        setImage(e.target.files[0]); 
+        const selectedFile = e.target.files[0];
+        setImage(selectedFile);
+        setFileName(selectedFile.name); 
     };
 
     const onUpload = () => {
@@ -55,8 +58,9 @@ const CompleteProfile = ({ setImageURL }) => {
                         <div className="flex justify-around items-center py-6">
                             <img src={imageURL} alt="img" className="w-[150px] cursor-pointer"/>
                             <div className="block justify-center">
-                                <input type="file" ref={imageInput} name="image" onChange={handleAvatarChange} placeholder="none" className="hidden"/>
+                                <input type="file" ref={imageInput} name="image" onChange={handleAvatarChange} className="hidden"/>
                                 <button onClick={onUpload} className="py-2 px-6 rounded-md border">Choose image</button>
+                                {fileName && <p className="py-2">{fileName}</p>}
                                 <p className="py-6">{">"} Or Choose one of our defaults.</p>
                             </div>
                         </div>
@@ -75,17 +79,17 @@ const CompleteProfile = ({ setImageURL }) => {
                             <div className="border rounded-2xl pb-4">
                                 <img src="https://cdn.dribbble.com/users/255/screenshots/7801277/media/904ae0e3f3995c9ce33758dd06928406.png" alt="img" className="w-[250px] pb-4 hidden md:flex"/>
                                 <p className="text-center pb-4 pt-2 font-medium">I{"'"}m a Designer looking to <br /> share my work</p>
-                                <input type="radio" name="" id="" className="flex justify-center m-auto"/>
+                                <input type="radio" name="" id="" className="flex justify-center m-auto cursor-pointer"/>
                             </div>
                             <div className="border rounded-2xl pb-4">
                                 <img src="https://cdn.dribbble.com/users/255/screenshots/7861779/media/5a6246e56604072b551ac01ad2ae675f.png?resize=1000x750&vertical=center" alt="img" className="w-[250px] pb-4 hidden md:flex"/>
                                 <p className="text-center pb-4  pt-2 font-medium">I{"'"}m looking to hire a <br /> Designer</p>
-                                <input type="radio" name="" id="" className="flex justify-center m-auto"/>
+                                <input type="radio" name="" id="" className="flex justify-center m-auto cursor-pointer"/>
                             </div>
                             <div className="border rounded-2xl pb-4">
                                 <img src="https://cdn.dribbble.com/users/255/screenshots/7887117/media/c94f2a58d7da974404a5122872bb93b0.png?resize=1000x750&vertical=center" alt="img" className="w-[250px] pb-4 hidden md:flex"/>
                                 <p className="text-center pb-4 pt-2 font-medium">I{"'"}m looking for Design <br /> Inspiration</p>
-                                <input type="radio" name="" id="" className="flex justify-center m-auto"/>
+                                <input type="radio" name="" id="" className="flex justify-center m-auto cursor-pointer"/>
                             </div>
                         </div>
                         <button onClick={handleFinish} className="my-8 bg-[#EB528D] text-white py-2 px-6 w-1/4 rounded-md">Finish</button>
