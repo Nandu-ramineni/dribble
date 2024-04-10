@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div >
             <div className="flex justify-center mt-28">
-                <p className="text-center text-lg py-2 px-6 rounded-3xl bg-[#FFB3D5]">Over 3 million ready-to-work creatives!</p>
+                <p className="text-center text-sm py-2 px-6 mx-2 rounded-3xl bg-[#FFB3D5] md:text-lg">Over 3 million ready-to-work creatives!</p>
             </div>
             <h1 className="text-5xl text-center pt-10 font-serif md:text-7xl">The World{"'"}s destination <br /> for design</h1>
             <p className="py-6 px-3 text-center text-2xl font-sans">Get inspired by the work of millions of top-rated designers & agencies around the world.</p>
