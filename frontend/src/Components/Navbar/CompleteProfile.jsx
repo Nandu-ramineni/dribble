@@ -12,13 +12,11 @@ const CompleteProfile = ({ setImageURL }) => {
     const [fileName, setFileName] = useState(""); 
     const [next, setNext] = useState(false);
     const navigate = useNavigate();
-
     const handleAvatarChange = (e) => {
         const selectedFile = e.target.files[0];
         setImage(selectedFile);
         setFileName(selectedFile.name); 
     };
-
     const onUpload = () => {
         imageInput.current.click();
     };
@@ -30,7 +28,6 @@ const CompleteProfile = ({ setImageURL }) => {
     const handleBack = () => {
         setNext(false);
     };
-
     const handleFinish = async () => {
         try {
             const formData = new FormData();
